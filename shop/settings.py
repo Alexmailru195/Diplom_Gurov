@@ -42,14 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     #Локальные приложения
-    'products',
-    'orders',
-    'inventory',
-    'pos',
-    'notifications',
-    'users',
-    'cart',
-    'admin_panel',
+
 ]
 
 MIDDLEWARE = [
@@ -87,7 +80,7 @@ WSGI_APPLICATION = 'shop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'sql_server.pyodbc',
+        'ENGINE': 'mssql',
         'NAME': 'shop_db',  # имя БД
         'USER': 'sa',  # sa
         'PASSWORD': 'mailru195',
