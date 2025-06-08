@@ -40,9 +40,21 @@ INSTALLED_APPS = [
 
     #Сторонняя организация
     'rest_framework',
+    'drf_yasg',
 
     #Локальные приложения
-
+    'products',
+    'orders',
+    'inventory',
+    'pos',
+    'notifications',
+    'users',
+    'cart',
+    'catalog',
+    'reports',
+    'admin_panel',
+    'user_profile',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +72,7 @@ ROOT_URLCONF = 'shop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -73,6 +85,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'shop.wsgi.application'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 
 # Database
@@ -116,7 +130,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
@@ -134,3 +148,17 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'users.User'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'mailru195@yandex.ru'
+EMAIL_HOST_PASSWORD = 'lbmbywboxucntimh'
+DEFAULT_FROM_EMAIL = 'mailru195@yandex.ru'
+
+
+LOGOUT_REDIRECT_URL = '/'
